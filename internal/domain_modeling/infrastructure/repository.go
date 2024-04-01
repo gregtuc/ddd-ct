@@ -2,7 +2,7 @@ package infrastructure
 
 import (
 	"github.com/gregtuc/ddd-ct/internal/domain_modeling/domain"
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
@@ -16,9 +16,10 @@ func NewDomainModelRepository(db *gorm.DB) *DomainModelRepository {
 	return &DomainModelRepository{db: db}
 }
 
-// InitDB initializes the database and migrates the DomainModel.
 func InitDB() (*gorm.DB, error) {
-	db, err := gorm.Open(sqlite.Open("domainmodels.db"), &gorm.Config{})
+	// Update "username", "password", "dbname", and "parameters" accordingly.
+	dsn := "user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}

@@ -2,8 +2,8 @@
 
 ### Quickstart
 * Windows
-    * set CGO_ENABLED=1
-    * go run ./cmd/webserver
+    * `docker-compose up --build``
+    * `go run ./cmd/webserver``
 
 ### Overview 
 In theory, domain-driven design is a fantastic toolkit and approach that can transform a teams approach to software design and the resulting effectiveness and collaboration for all teams, from product to development, for a given project. In practice, it's a far more messy experience where meetings can devolve and get side-tracked on details that don't matter.
