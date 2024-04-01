@@ -24,6 +24,7 @@ func InitDB() (*gorm.DB, error) {
 		return nil, err
 	}
 	db.AutoMigrate(&domain.DomainModel{})
+	db.AutoMigrate(&domain.Project{})
 	return db, nil
 }
 

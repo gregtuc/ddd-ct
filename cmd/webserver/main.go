@@ -17,6 +17,9 @@ func main() {
 	repo := infrastructure.NewDomainModelRepository(db)
 	service := application.NewDomainModelService(repo)
 
+	projectRepo := infrastructure.NewProjectRepository(db)
+	projectService := application.NewProjectService(projectRepo)
+
 	http.HandleFunc("/create-domain-model", func(w http.ResponseWriter, r *http.Request) {
 		// Simulate creating a new domain model
 		model, err := service.CreateDomainModel("Sample Model", "A sample domain model for demonstration.")
@@ -25,6 +28,21 @@ func main() {
 			return
 		}
 		response := "Created domain model: " + model.Name
+		w.Write([]byte(response))
+	})
+
+	http.HandleFunc("/projects/create", func(w http.ResponseWriter, r *http.Request) {
+		// Simplified example: In a real application, you should handle request parsing and error checking.
+		name := r.URL.Query().Get("name")
+		description := r.URL.Query().Get("description")
+
+		project, err := projectService.CreateProject(name, description)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		response := "Created project: " + project.Name
 		w.Write([]byte(response))
 	})
 
