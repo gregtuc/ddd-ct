@@ -2,8 +2,8 @@
 
 ### Quickstart
 * Windows
-    * `docker-compose up --build``
-    * `go run ./cmd/webserver``
+    * `docker-compose up --build`
+    * `go run ./cmd/webserver`
 
 ### Overview 
 In theory, domain-driven design is a fantastic toolkit and approach that can transform a teams approach to software design and the resulting effectiveness and collaboration for all teams, from product to development, for a given project. In practice, it's a far more messy experience where meetings can devolve and get side-tracked on details that don't matter.
@@ -28,3 +28,44 @@ This tool aims to create a more structured approach to the genesis of domain-dri
 * Scalability: As projects grow, the tool should easily scale to accommodate more users, more complex domain models, and integration with other tools.
 * Security: Given the potentially sensitive nature of the discussions, robust security measures are essential to protect company intellectual property.
 * This tool aims to bring structure and focus to the brainstorming process by leveraging DDD principles, thereby enhancing collaboration and ensuring that discussions contribute effectively to the project's goals.
+
+
+### Domain Model for this Application
+
+#### Bounded Contexts (BCs):
+* User Management: Handles user registration, authentication, and profile management. It focuses on user identity and access control.
+* Project Collaboration: Encompasses the collaboration and interaction among users within projects. This includes project creation, management, and user roles within those projects.
+* Domain Modeling: Central to the application, this BC deals with the creation and management of domain models, context maps, and ubiquitous language glossaries specific to each project.
+* Integration: Manages the integration with external systems and tools, such as project management software or version control systems.
+
+#### Domains and Subdomains:
+* Core Domain: Domain Modeling BC, as it's the unique proposition of the tool.
+* Supporting Subdomains: User Management and Project Collaboration, which support the core functionality but are not the unique selling points.
+* Generic Subdomains: Integration with other tools and services, which can be solved with off-the-shelf solutions.
+
+#### Entities:
+* Project: Represents a collaboration project with its unique identifier, name, and associated domain models.
+* Domain Model: Represents a specific domain model within a project. It could be an aggregate root for entities, value objects, events, and bounded contexts within the model.
+
+#### Value Objects:
+* Ubiquitous Language Term: Represents terms defined in the project's ubiquitous language glossary.
+* Domain Event: Represents a significant event within the domain modeling process.
+
+#### Aggregates:
+* Domain Model Aggregate: Encompasses the Domain Model entity as the root, along with nested entities like Entities, Value Objects, and Domain Events as part of the model.
+
+#### Domain Services:
+* Modeling Service: Offers operations for creating and modifying domain models, including adding or removing elements from a model.
+* Collaboration Service: Facilitates real-time collaboration among users, such as live editing of models and discussions.
+
+#### Repositories:
+* Project Repository: Manages persistence and retrieval of Project aggregates.
+* Domain Model Repository: Manages persistence and retrieval of Domain Model aggregates.
+
+#### Application Services:
+* Project Management Service: Handles creation, deletion, and updates to projects.
+* Access Control Service: Manages user permissions within a project.
+
+#### Infrastructure Services:
+* Authentication Service: Validates user credentials and manages sessions.
+* Integration Adapters: Connects to external project management tools or version control systems.
