@@ -4,21 +4,32 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gtuc/ddd-ct/internal/domainmodeling/application"
+	"github.com/gregtuc/ddd-ct/internal/domain_modeling/application"
+	"github.com/gregtuc/ddd-ct/internal/domain_modeling/infrastructure"
 )
 
 func main() {
-	service := application.DomainModelService{}
+	db, err := infrastructure.InitDB()
+	if err != nil {
+		log.Fatalf("Failed to initialize database: %v", err)
+	}
+
+	repo := infrastructure.NewDomainModelRepository(db)
+	service := application.NewDomainModelService(repo)
 
 	http.HandleFunc("/create-domain-model", func(w http.ResponseWriter, r *http.Request) {
 		// Simulate creating a new domain model
-		model := service.NewDomainModel("1", "Sample Model", "A sample domain model for demonstration.")
+		model, err := service.CreateDomainModel("Sample Model", "A sample domain model for demonstration.")
+		if err != nil {
+			http.Error(w, "Failed to create domain model", http.StatusInternalServerError)
+			return
+		}
 		response := "Created domain model: " + model.Name
 		w.Write([]byte(response))
 	})
 
 	log.Println("Server starting on :8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe("127.0.0.1:8080", nil); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }
