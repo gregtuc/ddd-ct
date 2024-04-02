@@ -22,16 +22,6 @@ This tool aims to create a more structured approach to the genesis of domain-dri
 * Feedback and Revision History: Every piece of the model or idea can receive feedback from team members, with a revision history to track how ideas evolve over time.
 * Learning Resources: To support teams new to DDD, the tool provides access to resources, best practices, and case studies on DDD implementation.
 
-### Implementation Considerations:
-
-* User Interface: The UI should be intuitive, minimizing the learning curve and encouraging adoption by the team.
-* Scalability: As projects grow, the tool should easily scale to accommodate more users, more complex domain models, and integration with other tools.
-* Security: Given the potentially sensitive nature of the discussions, robust security measures are essential to protect company intellectual property.
-* This tool aims to bring structure and focus to the brainstorming process by leveraging DDD principles, thereby enhancing collaboration and ensuring that discussions contribute effectively to the project's goals.
-
-
-### Domain Model for this Application
-
 #### Bounded Contexts (BCs):
 * User Management: Handles user registration, authentication, and profile management. It focuses on user identity and access control.
 * Project Collaboration: Encompasses the collaboration and interaction among users within projects. This includes project creation, management, and user roles within those projects.
