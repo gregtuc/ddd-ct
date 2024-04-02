@@ -5,9 +5,7 @@
     * `docker-compose up --build`
     * `go run ./cmd/webserver`
 
-### Overview 
-In theory, domain-driven design is a fantastic toolkit and approach that can transform a teams approach to software design and the resulting effectiveness and collaboration for all teams, from product to development, for a given project. In practice, it's a far more messy experience where meetings can devolve and get side-tracked on details that don't matter.
-
+### Overview
 This tool aims to create a more structured approach to the genesis of domain-driven design (DDD) for a given project.
 
 ### Core Features:
