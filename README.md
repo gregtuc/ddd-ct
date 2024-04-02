@@ -15,12 +15,8 @@ This tool aims to create a more structured approach to the genesis of domain-dri
 * Ubiquitous Language Glossary: A collaborative glossary where terms are defined and refined. This ensures that all team members share a common language, reducing confusion and aligning understanding.
 * Modeling Workshops: Facilitated sessions within the app that guide the team through exercises in Event Storming or Example Mapping to identify domain events, commands, aggregates, and entities.
 * Priority Voting: To keep discussions focused, the tool includes a feature for voting on ideas or models that should be prioritized. This helps in focusing the discussion on what matters most to the project.
-* Integration with Project Management Tools: Seamless integration with tools like JIRA, Trello, or Asana to convert agreed-upon ideas and models into actionable tasks.
-* Real-time Collaboration: Allowing team members to collaborate in real-time, including video and chat functions, to facilitate remote or distributed team participation.
-* Feedback and Revision History: Every piece of the model or idea can receive feedback from team members, with a revision history to track how ideas evolve over time.
-* Learning Resources: To support teams new to DDD, the tool provides access to resources, best practices, and case studies on DDD implementation.
 
-#### Bounded Contexts (BCs):
+#### Bounded Contexts:
 * User Management: Handles user registration, authentication, and profile management. It focuses on user identity and access control.
 * Project Collaboration: Encompasses the collaboration and interaction among users within projects. This includes project creation, management, and user roles within those projects.
 * Domain Modeling: Central to the application, this BC deals with the creation and management of domain models, context maps, and ubiquitous language glossaries specific to each project.
