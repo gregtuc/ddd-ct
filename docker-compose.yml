@@ -19,19 +19,6 @@ services:
       retries: 55
     volumes:
       - mysql-data:/var/lib/mysql
-  # app:
-  #   container_name: app
-  #   build: .
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   environment:
-  #     - DB_HOST=db
-  #     - DB_USER=user
-  #     - DB_PASSWORD=password
-  #     - DB_NAME=dbname
-  #   ports:
-  #     - "8080:8080"
 
 volumes:
   mysql-data:
